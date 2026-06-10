@@ -12,6 +12,7 @@ class Player {
     this.pipe2.setX(1.5 * canvas.width + this.pipe2.pipeT.width / 2);
     this.pRN++;
     this.playerHit = false;
+    this.xv = 2;
   }
 
   show() {
@@ -30,8 +31,13 @@ class Player {
     this.volY = constrain(this.volY, -20, 20);
     this.y += this.volY;
     this.y = constrain(this.y, -100, canvas.height);
+    if (this.playerHit) {
+      panSpeed = 0;
+      this.bleeding();
+    }
     this.pipe1.show();
     this.pipe2.show();
+
     // this.x = mouseX;
     // this.y = mouseY;
 
@@ -45,13 +51,14 @@ class Player {
     }
 
     if (this.pipe2.collision(this) || this.pipe1.collision(this)) {
-      this.y = 0;
+      if (!this.playerHit) timeOfDeath = Date.now();
       this.playerHit = true;
     }
-    if (!this.playerHit){
-        score += ( this.pipe1.pPassed(this) || this.pipe2.pPassed(this)) ? 1 : 0;
+    if (!this.playerHit) {
+      score += this.pipe1.pPassed(this) || this.pipe2.pPassed(this) ? 1 : 0;
+      if (score > hScore) hScore = score;
     }
-    }
+  }
 
   //  pPassed() {
   //    if (
@@ -60,8 +67,15 @@ class Player {
   //    ) {
   //    }
   //  }
+  bleeding() {
+    const timePassed2 = Date.now() - timeOfDeath;
+    if (this.y == canvas.height) this.xv = 0;
+    this.x += constrain(this.xv, 0, 100);
+    if (timePassed2 > timer2Duration) state = 2;
+  }
 
   flap() {
+    if (this.playerHit) return;
     if (presd) return;
     // Apply upward velocity every frame the mouse is held (allows variable height)
     // but cut off after timerDuration ms so long holds don't jump forever
@@ -71,6 +85,7 @@ class Player {
     }
   }
   sFlap() {
+    if (this.playerHit) return;
     this.volY = -this.flapH;
   }
 

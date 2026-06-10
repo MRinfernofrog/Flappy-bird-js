@@ -36,12 +36,6 @@ class Pipez {
     }
   }
   
-  points(){
-  
-  
-  
-  
-  }
 
   update() {
     this.pipeT.update();
