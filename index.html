@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <style>
+    body, html{
+      height:100%;
+      margin:0;
+
+
+    }
+    .mainContainer{
+      display: grid;
+      grid-template-columns: 1fr 5fr 1fr;
+
+    }
+
+    .canvasContainer{
+      grid-column: 2;
+      background: white;
+      padding:1em 3em 1em 3em;
+      align-self: center;
+      justify-self: center;
+    }
+
+
+
+
+  </style>
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.13/lib/p5.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.13/lib/addons/p5.sound.min.js"></script>
+    <script language="javascript" type="text/javascript" src="player.js"></script>
+    <script language="javascript" type="text/javascript" src="pipes.js"></script>
+    <script language="javascript" type="text/javascript" src="pipez.js"></script>
+    
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="utf-8" />
+
+  </head>
+  <body>
+    <center>
+  <br>
+  <br>
+  <div class="mainContainer">
+    <div class="canvasContainer">
+      <div class="title is-4">
+        Flappy Bird
+      </div>
+
+      <div id="canvas"><canvas id="defaultCanvas0" width="600" height="800" style="width: 600px; height: 800px;"></canvas></div>
+      <br>
+
+      <div class="content">\
+        <br>
+
+
+      </div>
+    </div>
+  </div>
+
+
+</center>
+    <main>
+    </main>
+    
+    <script src="sketch.js"></script>
+  </body>
+</html>
