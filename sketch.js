@@ -87,6 +87,7 @@ function touchEnded() {
 }
 
 function restartGame() {
+panSpeed = 1;
   score = 0;
   var scale = CANVAS_W / 600;
   player = new Player(x * scale, y * scale);
