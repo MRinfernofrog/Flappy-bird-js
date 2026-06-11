@@ -4,7 +4,7 @@ class Player {
     this.y = y;
     this.volY = 0;
     this.volX = panSpeed * floor(random(1, 10));
-    this.size = 20;
+    this.size = floor(canvas.width / 30);
     this.pRN = 0;
     this.flapH = flapH;
     this.pipe1 = new Pipez(true);

@@ -2,8 +2,8 @@ class Pipez {
   constructor(firstP, nextP, pRN) {
     this.distance = 200;
     this.offScreen = false;
-    this.gap = 160;
-    this.ofset = 60;
+    this.gap = floor(canvas.height * 0.2);
+    this.ofset = floor(canvas.height * 0.075);
     this.first = firstP;
     this.next = nextP;
     this.tHight = 0;
@@ -53,8 +53,6 @@ class Pipez {
   }
 
   collision(p) {
-    //this.pipeT.collision(p)
-    //this.pipeB.collision(p)
     if (this.pipeT.collision(p) || this.pipeB.collision(p)) {
       return true;
     }

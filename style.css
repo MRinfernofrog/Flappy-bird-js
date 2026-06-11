@@ -1,7 +1,48 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 html, body {
   margin: 0;
   padding: 0;
+  background: #333;
+  /* Prevent pull-to-refresh and bounce on mobile */
+  overscroll-behavior: none;
+  /* Prevent text selection on tap */
+  user-select: none;
+  -webkit-user-select: none;
+  /* Prevent callout on long-press (iOS) */
+  -webkit-touch-callout: none;
+  touch-action: none;
+  height: 100%;
 }
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px 0 20px;
+  min-height: 100dvh;
+}
+
+.title {
+  color: #fff;
+  font-family: sans-serif;
+  font-size: clamp(16px, 4vw, 24px);
+  font-weight: bold;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+#canvas {
+  /* Let p5 size the canvas; we just center it */
+  display: flex;
+  justify-content: center;
+}
+
 canvas {
   display: block;
+  /* Prevent default touch behavior on the game canvas */
+  touch-action: none;
 }
