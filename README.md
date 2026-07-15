@@ -3,4 +3,4 @@ still in development
 
 
             -----play game-----
-website https://mrinfernofrog.github.io/Flappy-bird-js/
+            https://mrinfernofrog.github.io/Flappy-bird-js/
